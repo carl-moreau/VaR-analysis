@@ -102,7 +102,7 @@ Drawback: Still assumes (conditional) normality; choice of $\lambda$ affects res
 - CVaR is computed as:
 
 $$
-\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{1-\alpha}
+\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{\alpha}
 $$
 $$
 
