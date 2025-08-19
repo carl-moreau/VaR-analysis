@@ -12,13 +12,15 @@ In simple terms:
 Conversely, there is a 5% chance that your portfolio will lose more than 2.81%.
 
 Formally, the $\alpha$-VaR is the quantile of the loss distribution:  
+
 $$
 P(L > \text{VaR}_\alpha) = 1-\alpha.
 $$
 
 But VaR only gives a threshold loss and does not provide information on the magnitude of losses beyond this threshold.
 
-**Conditional VaR (CVaR)**, also called *Expected Shortfall (ES)*, addresses this limitation. It measures the average loss given that losses exceed the VaR:  
+**Conditional VaR (CVaR)**, also called *Expected Shortfall (ES)*, addresses this limitation. It measures the average loss given that losses exceed the VaR:
+
 $$
 \text{CVaR}_\alpha = \mathbb{E}[L \mid L \geq \text{VaR}_\alpha].
 $$
@@ -41,10 +43,12 @@ Drawback: Heavily dependent on past data; assumes the past reflects the future.
 ### 2. Parametric (Variance-Covariance) VaR
 - Assumes returns are normally distributed with mean $\mu$ and volatility $\sigma$.  
 - VaR is computed as:  
-  $$
-  \text{VaR}_{\alpha} = -(\mu + z_{\alpha} \times \sigma)
-  $$
-  where $z_\alpha$ is the quantile of the standard normal distribution.  
+
+$$
+\text{VaR}_{\alpha} = -(\mu + z_{\alpha} \times \sigma)
+$$
+
+where $z_\alpha$ is the quantile of the standard normal distribution.  
 
 Advantage: Very fast and easy to compute.  
 Drawback: Assumes normality, underestimates tail risk in case of skewness or fat tails.  
@@ -54,10 +58,12 @@ Drawback: Assumes normality, underestimates tail risk in case of skewness or fat
 ### 3. Cornish-Fisher VaR
 - Extension of parametric VaR that adjusts quantiles to account for skewness and kurtosis in returns.  
 - Modified quantile:  
-  $$
-  z_\alpha^{CF} = z_\alpha + \frac{1}{6}(z_\alpha^2 - 1)S + \frac{1}{24}(z_\alpha^3 - 3)K - \frac{1}{36}(2z_\alpha^3 - 5z_\alpha)S^2
-  $$
-  where $S$ is skewness and $K$ is excess kurtosis (kurtosis - 3).  
+
+$$
+z_\alpha^{CF} = z_\alpha + \frac{1}{6}(z_\alpha^2 - 1)S + \frac{1}{24}(z_\alpha^3 - 3)K - \frac{1}{36}(2z_\alpha^3 - 5z_\alpha)S^2
+$$
+
+where $S$ is skewness and $K$ is excess kurtosis (kurtosis - 3).  
 - Once the adjusted quantile is calculated, VaR is calculated as in the parametric approach
 
 Advantage: Captures non-normality (skewed/fat-tailed returns).  
@@ -68,6 +74,7 @@ Drawback: Still an approximation; accuracy decreases for extreme tails.
 ### 4. EWMA (Exponentially Weighted Moving Average) VaR
 - Assumes conditional volatility evolves over time with more weight on recent returns.  
 - Volatility is estimated recursively with a decay factor $\lambda$:
+
 $$
 \sigma^2_t = \lambda \times \sigma^2_{t-1} + (1-\lambda) \times r^2_{t-1}
 $$
@@ -93,9 +100,11 @@ Drawback: Still assumes (conditional) normality; choice of $\lambda$ affects res
   
 - CVaR answers *"If things go worse than VaR, what is my average loss?"*. 
 - CVaR is computed as:
+
 $$
 \text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{1-\alpha}
-$$  
+$$
+
 where $\phi(\cdot)$ is the standard normal PDF and $\Phi(\cdot)$ the CDF.  
 
 Advantages: 
