@@ -22,7 +22,7 @@ But VaR only gives a threshold loss and does not provide information on the magn
 **Conditional VaR (CVaR)**, also called *Expected Shortfall (ES)*, addresses this limitation. It measures the average loss given that losses exceed the VaR:
 
 $$
-\text{CVaR}_\alpha = \mathbb{E}[L \mid L \geq \text{VaR}_\alpha].
+\text{CVaR}_\alpha = \mathbb{E}[L \mid L \ge \text{VaR}_\alpha].
 $$
 
 Unlike VaR, CVaR is a coherent risk measure, meaning it respects properties such as sub-additivity, making it more robust for portfolio risk management.
