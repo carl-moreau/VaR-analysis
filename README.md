@@ -101,9 +101,7 @@ Drawback: Still assumes (conditional) normality; choice of $\lambda$ affects res
 - CVaR answers *"If things go worse than VaR, what is my average loss?"*. 
 - CVaR is computed as:
 
-$$
-\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{1-\alpha}
-$$
+$$\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{1-\alpha}$$
 
 where $\phi(\cdot)$ is the standard normal PDF and $\Phi(\cdot)$ the CDF.  
 
