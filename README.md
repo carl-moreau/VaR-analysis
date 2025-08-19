@@ -14,7 +14,7 @@ Conversely, there is a 5% chance that your portfolio will lose more than 2.81%.
 Formally, the $\alpha$-VaR is the quantile of the loss distribution:  
 
 $$
-P(L > \text{VaR}_\alpha) = 1-\alpha.
+P(L > \text{VaR}_\alpha) = 1-\alpha
 $$
 
 But VaR only gives a threshold loss and does not provide information on the magnitude of losses beyond this threshold.
@@ -101,7 +101,10 @@ Drawback: Still assumes (conditional) normality; choice of $\lambda$ affects res
 - CVaR answers *"If things go worse than VaR, what is my average loss?"*. 
 - CVaR is computed as:
 
-$$\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{1-\alpha}$$
+$$
+\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{1-\alpha}
+$$
+$$
 
 where $\phi(\cdot)$ is the standard normal PDF and $\Phi(\cdot)$ the CDF.  
 
