@@ -1,4 +1,4 @@
-# Value-at-Risk (VaR) and Conditional VaR (CVaR)
+# Value-at-Risk (VaR)
 
 ## Introduction
 
@@ -16,16 +16,6 @@ Formally, the $\alpha$-VaR is the quantile of the loss distribution:
 $$
 P(L > \text{VaR}_\alpha) = 1-\alpha
 $$
-
-But VaR only gives a threshold loss and does not provide information on the magnitude of losses beyond this threshold.
-
-**Conditional VaR (CVaR)**, also called *Expected Shortfall (ES)*, addresses this limitation. It measures the average loss given that losses exceed the VaR:
-
-$$
-\text{CVaR}_\alpha = \mathbb{E}[L \mid L \ge \text{VaR}_\alpha].
-$$
-
-Unlike VaR, CVaR is a coherent risk measure, meaning it respects properties such as sub-additivity, making it more robust for portfolio risk management.
 
 ---
 
@@ -94,22 +84,3 @@ Once EWMA volatility is calculated, VaR is calculated as in the parametric appro
 Advantage: Adapts to volatility clustering, more responsive to shocks.  
 Drawback: Still assumes (conditional) normality; choice of $\lambda$ affects results.  
 
----
-
-## Conditional VaR (Expected Shortfall)
-  
-- CVaR answers *"If things go worse than VaR, what is my average loss?"*. 
-- CVaR is computed as:
-
-
-$\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{\alpha}$
-
-where $\phi(\cdot)$ is the standard normal PDF and $\Phi(\cdot)$ the CDF.  
-
-Advantages: 
-- Coherent risk measure (sub-additive, convex).  
-- Captures the tail behavior of losses.  
-
-Drawbacks:
-- More computationally demanding (requires integration or simulation).  
-- Sensitive to data quality, especially in the extreme tail.  
