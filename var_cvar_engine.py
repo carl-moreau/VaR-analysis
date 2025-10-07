@@ -735,9 +735,6 @@ class Portfolio:
         plt.show()
 
 
-
-# Add this to your existing code
-
 class VaRBacktest:
     """
     Simple rolling window backtesting for Value at Risk models.
